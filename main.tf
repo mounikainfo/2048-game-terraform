@@ -32,20 +32,20 @@ module "alb" {
 
 # create asg
 module "asg" {
-  source                   = "./modules/auto-scalling"
-  game_instance_type       = var.game_instance_type
-  public_subnet_az1_id     = module.vpc.public_subnet_az1_id
-  public_subnet_az2_id     = module.vpc.public_subnet_az2_id
-  public_subnet_az3_id     = module.vpc.public_subnet_az3_id
-  alb_security_group       = module.security_groups.alb_security_group_id
-  project_name             = var.project_name
-  target_group_arn         = module.alb.target_group_arn
-  game_desired_capacity    = var.game_desired_capacity
-  game_volume_size         = var.game_volume_size
-  env                      = var.env
-  type                     = var.type
-  key_name                 = var.key_name
-  instance_profile         = module.iam.instance_profile
+  source                = "./modules/auto-scalling"
+  game_instance_type    = var.game_instance_type
+  public_subnet_az1_id  = module.vpc.public_subnet_az1_id
+  public_subnet_az2_id  = module.vpc.public_subnet_az2_id
+  public_subnet_az3_id  = module.vpc.public_subnet_az3_id
+  alb_security_group    = module.security_groups.alb_security_group_id
+  project_name          = var.project_name
+  target_group_arn      = module.alb.target_group_arn
+  game_desired_capacity = var.game_desired_capacity
+  game_volume_size      = var.game_volume_size
+  env                   = var.env
+  type                  = var.type
+  key_name              = var.key_name
+  instance_profile      = module.iam.instance_profile
 }
 
 # create key pair
