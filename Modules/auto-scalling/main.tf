@@ -25,7 +25,7 @@ resource "aws_launch_template" "game-custom-launch-template" {
   instance_type           = var.game_instance_type
   vpc_security_group_ids  = [var.alb_security_group]
   key_name                = var.key_name
-  user_data               = filebase64("/Users/dhruvins/Desktop/Terraform_2048_Game/bin/game.sh")
+  user_data               = filebase64("D:/LinkedIn Projects/2048-game-terraform/game.sh")
   update_default_version  = true
   disable_api_termination = true
 

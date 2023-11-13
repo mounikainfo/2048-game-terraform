@@ -56,5 +56,5 @@ module "key_pair" {
 
 # create IAM resources
 module "iam" {
-  source = "./modules/iam"
+  source = "./modules/IAM"
 }

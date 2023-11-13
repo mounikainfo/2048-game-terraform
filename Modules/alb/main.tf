@@ -1,4 +1,3 @@
-# Create Application Load Balancer
 resource "aws_lb" "application_load_balancer" {
 
   name                       = "${var.project_name}-alb"

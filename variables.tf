@@ -8,10 +8,18 @@ variable "game_instance_type" {}
 # Region
 variable "region" {}
 
+# profile
+variable "profile" {}
+
+# s3 bucket
+
+
 # SSH Access
 variable "ssh_access" {
   type = list(string)
 }
+
+
 
 # HTTP Access
 variable "http_access" {
@@ -43,5 +51,5 @@ variable "type" {
 
 # Key 
 variable "key_name" {
-  default = "Demo-key"
+  default = "splunk_key"
 }

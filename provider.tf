@@ -1,7 +1,7 @@
 # configure aws provider
 provider "aws" {
   region  = var.region
-  profile = "mouni"
+  profile = var.profile
 }
 
 # configure backend
@@ -10,7 +10,7 @@ terraform {
     bucket         = "game-mouni-terraform"
     key            = "terraform.tfstate"
     region         = "us-east-2"
-    profile        = "mouni"
+    profile        = "mounika"
     dynamodb_table = "game-state-lock-dynamodb"
   }
 }
