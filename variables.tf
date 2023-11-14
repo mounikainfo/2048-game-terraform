@@ -11,9 +11,6 @@ variable "region" {}
 # profile
 variable "profile" {}
 
-# s3 bucket
-
-
 # SSH Access
 variable "ssh_access" {
   type = list(string)
