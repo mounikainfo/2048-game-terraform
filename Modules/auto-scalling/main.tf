@@ -21,11 +21,13 @@ data "aws_ami" "amazon_linux_2" {
 # Create Launch Template for Game Nodes
 resource "aws_launch_template" "game-custom-launch-template" {
   name                    = "${var.project_name}-game-config"
-  image_id                = data.aws_ami.amazon_linux_2.id
+  # image_id                = data.aws_ami.amazon_linux_2.id
+  image_id = "${data.aws_ami.amazon_linux_2.id}"
   instance_type           = var.game_instance_type
   vpc_security_group_ids  = [var.alb_security_group]
   key_name                = var.key_name
-  user_data               = filebase64("D:/LinkedIn Projects/2048-game-terraform/2048-game-terraform/game.sh")
+  # user_data               = filebase64("D:/LinkedIn Projects/2048-game-terraform/2048-game-terraform/game.sh")
+  user_data = filebase64("C:/Users/anves/game1.sh")
   update_default_version  = true
   disable_api_termination = true
 
@@ -116,11 +118,12 @@ resource "aws_ebs_volume" "game-volume" {
   }
 }
 
-# Attach volume to Game Nodes
+/* # Attach volume to Game Nodes
 resource "aws_volume_attachment" "ebs_game" {
   count        = var.game_desired_capacity
-  device_name  = "/dev/sdf"
+  # device_name  = "/dev/sdf"
+  device_name = "/dev/xvda"
   volume_id    = aws_ebs_volume.game-volume.*.id[count.index]
   instance_id  = data.aws_instances.game_instance.ids[count.index]
   force_detach = true
-}
+} */
